@@ -24,6 +24,8 @@ public class Music {
 
     private int trackNumber;
 
+    private Long artistId;
+
     // Constructors, Getters, and Setters
     public Music() {
     }
@@ -83,5 +85,13 @@ public class Music {
 
     public void setTrackNumber(int trackNumber) {
         this.trackNumber = trackNumber;
+    }
+
+    public Long getArtistId() {
+        return artistId;
+    }
+
+    public void setArtistId(Long artistId) {
+        this.artistId = artistId;
     }
 }

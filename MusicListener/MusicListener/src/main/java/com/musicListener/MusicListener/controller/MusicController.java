@@ -83,5 +83,12 @@ public class MusicController {
         }
     }
 
+    //Por Artista
+    @GetMapping("/artist/{artistId}")
+    public ResponseEntity<List<Music>> getSongsByArtistIdWithAlbumInfo(@PathVariable Long artistId) {
+        List<Music> songs = musicService.getSongsByArtistIdWithAlbumInfo(artistId);
+        return new ResponseEntity<>(songs, HttpStatus.OK);
+    }
+
 }
 

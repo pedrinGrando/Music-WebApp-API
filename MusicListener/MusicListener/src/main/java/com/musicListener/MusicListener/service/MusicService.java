@@ -49,5 +49,17 @@ public class MusicService {
         return false;
     }
 
+    public List<Music> getSongsByArtistIdWithAlbumInfo(Long artistId) {
+        // Buscar musicas do artista
+        List<Music> songs = musicRepository.findByArtistId(artistId);
+
+        //informações do álbum associado a cada música
+        for (Music song : songs) {
+            song.getAlbum().getId(); 
+        }
+
+        return songs;
+    }
+
 }
 

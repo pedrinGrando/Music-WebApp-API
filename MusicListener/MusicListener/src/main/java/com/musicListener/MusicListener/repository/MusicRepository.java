@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MusicRepository extends JpaRepository<Music, Long> {
-   
+    List<Music> findByArtistId(Long artistId);
 }
