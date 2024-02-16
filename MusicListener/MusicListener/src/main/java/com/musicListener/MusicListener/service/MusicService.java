@@ -3,6 +3,7 @@ package com.musicListener.MusicListener.service;
 import com.musicListener.MusicListener.model.Music;
 import com.musicListener.MusicListener.repository.MusicRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,5 @@ public class MusicService {
         return false;
     }
 
-    public List<Music> getSongsByArtistId(Long artistId) {
-        return songRepository.findByArtistId(artistId);
-    }
 }
+
