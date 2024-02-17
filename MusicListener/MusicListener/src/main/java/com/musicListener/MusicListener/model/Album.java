@@ -19,19 +19,18 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Album {
 
+    //Construtores Getters e Setters gerados com Lombock
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
 
-    private String releaseYear;
+    private int releaseYear;
 
     private String coverImage;
 
     @ManyToOne
     private Artist artist;
-
-    // Construtores, Getters, and Setters
     
 }

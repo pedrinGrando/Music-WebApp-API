@@ -35,7 +35,7 @@ public class AlbumController {
     @PostMapping
     public ResponseEntity<Album> createAlbum(@RequestBody Album album) {
     
-        if (album.getTitle() == null || album.getReleaseYear() == null || album.getCoverImage() == null || album.getArtist() == null) {
+        if (album.getTitle() == null || album.getReleaseYear() == 0 || album.getCoverImage() == null || album.getArtist() == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 

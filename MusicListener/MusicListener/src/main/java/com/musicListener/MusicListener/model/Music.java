@@ -26,14 +26,14 @@ public class Music {
 
     private String nameMusic;
 
-    private String durationMinutes;
+    private int durationMinutes;
 
-    private String durationSeconds;
+    private int durationSeconds;
 
     @ManyToOne
     private Album album;
 
-    private String trackNumber;
+    private int trackNumber;
 
     private Long artistId;
  

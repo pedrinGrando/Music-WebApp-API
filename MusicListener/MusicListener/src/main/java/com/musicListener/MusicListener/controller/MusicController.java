@@ -34,7 +34,7 @@ public class MusicController {
     //Salvar
     @PostMapping
     public ResponseEntity<Music> createSong(@RequestBody Music song) {
-        if (song.getNameMusic() == null || song.getDurationMinutes() == null || song.getDurationSeconds() == null || song.getAlbum() == null || song.getTrackNumber() == null) {
+        if (song.getNameMusic() == null || song.getDurationMinutes() == 0|| song.getDurationSeconds() == 0 || song.getAlbum() == null || song.getTrackNumber() <= 0) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
@@ -48,9 +48,9 @@ public class MusicController {
 
     //Busca pelo nome
     @GetMapping("/musics/id")
-    public ResponseEntity<Long> getMusicIdByName(@PathVariable String name) {
+    public ResponseEntity<Long> getMusicIdByName(@PathVariable String nameMusic) {
         try {
-            Long musicId = musicService.getMusicIdByName(name);
+            Long musicId = musicService.getMusicIdByNameMusic(nameMusic);
             return ResponseEntity.ok().body(musicId);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
