@@ -4,8 +4,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Table
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Artist {
 
     @Id
@@ -15,38 +25,5 @@ public class Artist {
     private String name;
     
     private String profileImage;
-
-    // Construtores, Getters e Setters
-    public Artist() {
-    }
-
-    public Artist(String name, String profileImage) {
-        this.name = name;
-        this.profileImage = profileImage;
-    }
-
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getProfileImage() {
-        return profileImage;
-    }
-
-    public void setProfileImage(String profileImage) {
-        this.profileImage = profileImage;
-    }
+    
 }

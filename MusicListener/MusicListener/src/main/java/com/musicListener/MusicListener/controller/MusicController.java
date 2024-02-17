@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +34,7 @@ public class MusicController {
     //Salvar
     @PostMapping
     public ResponseEntity<Music> createSong(@RequestBody Music song) {
-        if (song.getTitle() == null || song.getDurationMinutes() == 0 || song.getDurationSeconds() == 0 || song.getAlbum() == null || song.getTrackNumber() <= 0) {
+        if (song.getTitle() == null || song.getDurationMinutes() == null || song.getDurationSeconds() == null || song.getAlbum() == null || song.getTrackNumber() == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
