@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/artists")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 public class ArtistController {
 
     private final ArtistService artistService;

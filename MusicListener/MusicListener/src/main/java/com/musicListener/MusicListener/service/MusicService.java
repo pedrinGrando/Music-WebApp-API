@@ -31,7 +31,7 @@ public class MusicService {
         Optional<Music> optionalSong = musicRepository.findById(id);
         if (optionalSong.isPresent()) {
             Music existingSong = optionalSong.get();
-            existingSong.setTitle(updatedSong.getTitle());
+            existingSong.setNameMusic(updatedSong.getNameMusic());
             existingSong.setDurationMinutes(updatedSong.getDurationMinutes());
             existingSong.setDurationSeconds(updatedSong.getDurationSeconds());
             return musicRepository.save(existingSong);

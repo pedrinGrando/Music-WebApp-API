@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/albums")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 public class AlbumController {
 
     private final AlbumService albumService;

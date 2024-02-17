@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/songs")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 public class MusicController {
 
     private final MusicService musicService;
@@ -34,7 +34,7 @@ public class MusicController {
     //Salvar
     @PostMapping
     public ResponseEntity<Music> createSong(@RequestBody Music song) {
-        if (song.getTitle() == null || song.getDurationMinutes() == null || song.getDurationSeconds() == null || song.getAlbum() == null || song.getTrackNumber() == null) {
+        if (song.getNameMusic() == null || song.getDurationMinutes() == null || song.getDurationSeconds() == null || song.getAlbum() == null || song.getTrackNumber() == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
