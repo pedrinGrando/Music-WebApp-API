@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -43,6 +44,17 @@ public class ArtistController {
             return new ResponseEntity<>(savedArtist, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //Encontra Artista pelo nome
+    @GetMapping("/{name}")
+    public ResponseEntity<Long> getArtistIdByName(@RequestParam String name) {
+        try {
+            Long artistId = artistService.getArtistIdByName(name);
+            return ResponseEntity.ok().body(artistId);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 

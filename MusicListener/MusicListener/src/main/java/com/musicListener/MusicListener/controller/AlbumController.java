@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -43,6 +44,17 @@ public class AlbumController {
             return new ResponseEntity<>(savedAlbum, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //Encontra pelo nome
+    @GetMapping("/albums/id")
+    public ResponseEntity<Long> getAlbumIdByName(@RequestParam String title) {
+        try {
+            Long albumId = albumService.getAlbumIdByTitle(title);
+            return ResponseEntity.ok().body(albumId);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 

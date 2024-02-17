@@ -46,6 +46,17 @@ public class MusicController {
         }
     }
 
+    //Busca pelo nome
+    @GetMapping("/musics/id")
+    public ResponseEntity<Long> getMusicIdByName(@PathVariable String name) {
+        try {
+            Long musicId = musicService.getMusicIdByName(name);
+            return ResponseEntity.ok().body(musicId);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
     //Buscar por id
     @GetMapping("/{id}")
     public ResponseEntity<Music> getSongById(@PathVariable Long id) {

@@ -61,5 +61,10 @@ public class MusicService {
         return songs;
     }
 
+    public Long getMusicIdByNameMusic(String nameMusic) {
+        Music music = musicRepository.findByNameMusic(nameMusic);
+        return music != null ? music.getId() : null;
+    }
+
 }
 

@@ -47,5 +47,11 @@ public class AlbumService {
         }
         return false;
     }
+
+    public Long getAlbumIdByTitle(String title) {
+        // TODO Auto-generated method stub
+        Album album = albumRepository.findByTitle(title);
+        return album != null ? album.getId() : null;
+    }
 }
 
