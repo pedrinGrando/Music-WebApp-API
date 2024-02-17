@@ -19,6 +19,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Music {
 
+    //Construtores Getters e Setters gerados com Lombock
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
